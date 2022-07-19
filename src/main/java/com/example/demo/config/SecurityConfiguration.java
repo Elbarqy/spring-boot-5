@@ -1,6 +1,5 @@
 package com.example.demo.config;
 
-import com.example.demo.auth.ApplicationUserService;
 import com.example.demo.jwt.JwtGenerator;
 import com.example.demo.jwt.JwtTokenVerifier;
 import org.springframework.context.annotation.Bean;
@@ -9,7 +8,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import static com.example.demo.config.ApplicationUserRoles.STUDENT;
@@ -17,14 +15,6 @@ import static com.example.demo.config.ApplicationUserRoles.STUDENT;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
-
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        auth.authenticationProvider(daoAuthenticationProvider());
-//    }
-
-
-
     @Bean
     protected SecurityFilterChain filterChain(HttpSecurity http, AuthenticationManager authenticationManager) throws Exception {
         http
