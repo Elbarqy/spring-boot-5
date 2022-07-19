@@ -1,5 +1,6 @@
-package com.example.demo.auth;
+package com.example.demo.auth.authmanger;
 
+import com.example.demo.auth.ApplicationUserDao;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

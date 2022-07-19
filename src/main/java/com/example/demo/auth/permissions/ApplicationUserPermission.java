@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.example.demo.auth.permissions;
 
 public enum ApplicationUserPermission {
     STUDENT_READ("student:read"),

@@ -1,4 +1,4 @@
-package com.example.demo.config;
+package com.example.demo.auth.authmanger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

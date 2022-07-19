@@ -1,19 +1,28 @@
 package com.example.demo.student;
 
 public class Student {
-    private final Integer studentId;
-    private final String studentName;
-
+    private  long studentId;
+    private  String studentName;
     public Student(Integer studentId, String studentName) {
         this.studentId = studentId;
         this.studentName = studentName;
     }
+    public Student(){
+    }
 
-    public Integer getStudentId() {
+    public long getStudentId() {
         return studentId;
+    }
+
+    public void setStudentId(long studentId) {
+        this.studentId = studentId;
     }
 
     public String getStudentName() {
         return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 }

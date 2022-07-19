@@ -1,6 +1,7 @@
-package com.example.demo.auth;
+package com.example.demo.auth.authmanger;
 
-import com.example.demo.config.ApplicationUserRoles;
+import com.example.demo.auth.ApplicationUser;
+import com.example.demo.auth.ApplicationUserDao;
 import com.google.common.collect.Lists;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Repository;
@@ -8,8 +9,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
-import static com.example.demo.config.ApplicationUserRoles.ADMIN;
-import static com.example.demo.config.ApplicationUserRoles.STUDENT;
+import static com.example.demo.auth.permissions.ApplicationUserRoles.ADMIN;
+import static com.example.demo.auth.permissions.ApplicationUserRoles.STUDENT;
 
 
 @Repository("fake")

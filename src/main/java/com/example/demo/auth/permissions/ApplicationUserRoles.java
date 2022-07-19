@@ -1,9 +1,10 @@
-package com.example.demo.config;
+package com.example.demo.auth.permissions;
 
+import com.example.demo.auth.permissions.ApplicationUserPermission;
 import com.google.common.collect.Sets;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-import static com.example.demo.config.ApplicationUserPermission.*;
+import static com.example.demo.auth.permissions.ApplicationUserPermission.*;
 
 import java.util.Set;
 import java.util.stream.Collectors;
