@@ -50,6 +50,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/api/students/*").permitAll()
                 .antMatchers("/api/**").hasRole(STUDENT.name())
+                //TODO another way to do so is by PreAuthorize Decorator
                 .antMatchers(HttpMethod.DELETE, "mang/api/**").hasAuthority(COURSE_WRITE.getPermission())
                 .antMatchers(HttpMethod.PUT, "mang/api/**").hasAuthority(COURSE_WRITE.getPermission())
                 .antMatchers(HttpMethod.POST, "mang/api/**").hasAuthority(COURSE_WRITE.getPermission())
