@@ -32,20 +32,20 @@ public class DemoApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		System.out.println("DATASOURCE = " + dataSource);
-
-		System.out.println("\n1.findAll()...");
-		for (BankAccount customer : bankAccountRepository.findAll()) {
-			System.out.println(customer);
-		}
-
-
-
-//		 For Stream, need @Transactional
-		System.out.println("find by stream \n");
-		try (Stream<BankAccount> stream = bankAccountRepository.findByNameReturnStream("ahmed")) {
-			stream.forEach(System.out::println);
-		}
-		System.out.println("Done!");
+//		System.out.println("DATASOURCE = " + dataSource);
+//
+//		System.out.println("\n1.findAll()...");
+//		for (BankAccount customer : bankAccountRepository.findAll()) {
+//			System.out.println(customer);
+//		}
+//
+//
+//
+////		 For Stream, need @Transactional
+//		System.out.println("find by stream \n");
+//		try (Stream<BankAccount> stream = bankAccountRepository.findByNameReturnStream("ahmed")) {
+//			stream.forEach(System.out::println);
+//		}
+//		System.out.println("Done!");
 	}
 }

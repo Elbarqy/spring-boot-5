@@ -10,6 +10,7 @@ import java.util.stream.Stream;
 @Repository
 public interface BankAccountRepository extends CrudRepository<BankAccount, Long> {
     List<BankAccount> findByName(String name);
+    BankAccount findByEmail(String name);
 
     @Query("select acc from BANK_ACCOUNT acc where acc.name= :name")
     Stream<BankAccount> findByNameReturnStream(@Param("name") String name);

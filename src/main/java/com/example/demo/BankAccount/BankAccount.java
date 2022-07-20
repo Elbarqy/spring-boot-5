@@ -3,6 +3,9 @@ package com.example.demo.BankAccount;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.checkerframework.common.aliasing.qual.Unique;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -14,9 +17,16 @@ public class BankAccount {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String name;
-
-    @Column(name = "CREATED_AT")
-    Date created_at;
+    @Column(name = "email")
+    private String email;
+    private String password;
+    private String role = "STUDENT";
+    @Column(name = "CREATED_AT",updatable = false)
+    @CreatedDate
+    Date created_at = new Date();
+    @Column(name = "MODIFIED_AT",updatable = false)
+    @LastModifiedDate
+    Date modified_at;
 }
 
 //@Builder

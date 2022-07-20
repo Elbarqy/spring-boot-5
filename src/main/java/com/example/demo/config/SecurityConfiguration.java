@@ -1,6 +1,7 @@
 package com.example.demo.config;
 
 import com.example.demo.jwt.JwtGenerator;
+import com.example.demo.jwt.JwtTokenVerifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -19,6 +20,10 @@ public class SecurityConfiguration {
         http
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .authorizeRequests()
+                .antMatchers("/register").permitAll()
+                .antMatchers("/login").permitAll()
                 .and()
                 .addFilter(new JwtGenerator(authenticationManager))
 //                .addFilterAfter(new JwtTokenVerifier(), JwtGenerator.class)
