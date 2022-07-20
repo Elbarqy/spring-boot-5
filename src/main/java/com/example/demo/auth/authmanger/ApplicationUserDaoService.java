@@ -14,14 +14,11 @@ import static com.example.demo.auth.permissions.ApplicationUserRoles.*;
 
 @Repository("dev")
 public class ApplicationUserDaoService implements ApplicationUserDao {
-    private final PasswordEncoder passwordEncoder;
     private final BankAccountRepository bankAccountRepository;
 
     public ApplicationUserDaoService(
-            PasswordEncoder passwordEncoder,
             BankAccountRepository bankAccountRepository
     ) {
-        this.passwordEncoder = passwordEncoder;
         this.bankAccountRepository = bankAccountRepository;
     }
 
@@ -30,7 +27,7 @@ public class ApplicationUserDaoService implements ApplicationUserDao {
     public Optional<ApplicationUser> selectApplicationUserByUserName(String email) {
         BankAccount bankAccount = bankAccountRepository.findByEmail(email);
         if (bankAccount != null) {
-            return Optional.of(new ApplicationUser(
+            var resp=  Optional.of(new ApplicationUser(
                     bankAccount.getName(),
                     bankAccount.getPassword(),
                     STUDENT.getGrantedAuth(),
@@ -39,6 +36,8 @@ public class ApplicationUserDaoService implements ApplicationUserDao {
                     true,
                     true
             ));
+            System.out.println(resp);
+            return resp;
         }
         return Optional.empty();
     }

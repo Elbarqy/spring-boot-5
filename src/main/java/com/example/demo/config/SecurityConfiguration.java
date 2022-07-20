@@ -8,13 +8,19 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import static com.example.demo.auth.permissions.ApplicationUserRoles.STUDENT;
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
+    private final PasswordEncoder passwordEncoder;
+
+    public SecurityConfiguration(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
+
     @Bean
     protected SecurityFilterChain filterChain(HttpSecurity http, AuthenticationManager authenticationManager) throws Exception {
         http
@@ -24,8 +30,8 @@ public class SecurityConfiguration {
                 .authorizeRequests()
                 .antMatchers("/register").permitAll()
                 .and()
-                .addFilter(new JwtGenerator(authenticationManager))
-//                .addFilterAfter(new JwtTokenVerifier(), JwtGenerator.class)
+                .addFilter(new JwtGenerator(authenticationManager, passwordEncoder))
+                .addFilterAfter(new JwtTokenVerifier(), JwtGenerator.class)
                 .authorizeRequests()
                 .antMatchers("/api/students/*").permitAll()
                 .antMatchers("/api/**").hasRole(STUDENT.name())
