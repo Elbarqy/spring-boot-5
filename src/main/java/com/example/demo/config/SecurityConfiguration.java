@@ -23,7 +23,6 @@ public class SecurityConfiguration {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/register").permitAll()
-                .antMatchers("/login").permitAll()
                 .and()
                 .addFilter(new JwtGenerator(authenticationManager))
 //                .addFilterAfter(new JwtTokenVerifier(), JwtGenerator.class)
